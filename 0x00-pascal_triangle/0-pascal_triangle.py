@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-from typing import list
+"""
+Create a function that returns Pascal's triangle
+"""
+
 
 def pascal_triangle(n: int):
     """
