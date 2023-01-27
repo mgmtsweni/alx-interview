@@ -9,13 +9,13 @@ def pascal_triangle(n: int):
         Returns a a list of lits reprisenting 
         Pascal's triangle of a given integer.
     """
-    triangle  = []
+    triangle = []
     if n <= 0:
-        return triangle 
-    
+        return triangle
+
     for i in range(n):
         level = [1]
         for j in range(1, i + 1):
-            level.append(level[j - 1] * (i - j + 1)// j)
+            level.append(level[j - 1] * (i - j + 1) // j)
         triangle .append(level)
-    return triangle 
+    return triangle
