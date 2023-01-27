@@ -6,7 +6,7 @@ Create a function that returns Pascal's triangle
 
 def pascal_triangle(n: int):
     """
-        Returns a a list of lits reprisenting 
+        Returns a a list of lits reprisenting
         Pascal's triangle of a given integer.
     """
     triangle = []
