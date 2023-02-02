@@ -9,16 +9,15 @@ def canUnlockAll(boxes):
         True: all boxes can be opened
         False: not all boxes can be opened
     """
-    if ((type(boxes) is not list) or len(boxes) == 0):
-        return False
+    n = len(boxes)
+    checked = set([0])
+    unchecked = set(boxes[0]).difference(set([0]))
 
-    visited = [False] * len(boxes)
-    stack = [0]
-
-    while stack:
-        current = stack.pop()
-        if not visited[current]:
-            visited[current] = True
-            stack.extend(boxes[current])
-
-    return all(visited)
+    while len(unchecked) > 0:
+        box = unchecked.pop()
+        if not box or box >= n or box < 0:
+            continue
+        if box not in checked:
+            unchecked = unchecked.union(boxes[box])
+            checked.add(box)
+    return n == len(checked)
