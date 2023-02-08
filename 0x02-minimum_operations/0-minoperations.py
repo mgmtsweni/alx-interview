@@ -12,10 +12,9 @@ def minOperations(n):
 
     op = 0
     minOp = 2
-    while (minOp <= n):
-        if not (n % minOp):
-            n = int(n / minOp)
+    while n > 1:
+        while n % minOp == 0:
             op += minOp
-            minOp = 1
+            n /= minOp
         minOp += 1
     return op
