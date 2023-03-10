@@ -3,9 +3,9 @@
 
 const request = require('request');
 const args = process.argv[2];
-const movie_url = `https://swapi-api.alx-tools.com/api/films/${args}`;
+const movieUrl = `https://swapi-api.alx-tools.com/api/films/${args}`;
 
-request(movie_url, function (error, response, body) {
+request(movieUrl, function (error, response, body) {
   if (!error) {
     const movie = JSON.parse(body);
     const characters = movie.characters;
