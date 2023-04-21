@@ -1,27 +1,23 @@
 #!/usr/bin/python3
-"""utf8 validation problem"""
+""" UTF-8 Validation"""
 
 
 def validUTF8(data):
     """Determines if a given data set represents a valid UTF-8 encoding"""
-    def countbit(num):
-        count = 0
-        for i in range(7, -1, -1):
-            if num & (1 << i):
-                count += 1
-            else:
-                break
-        return count
+    byte_count = 0
 
-    count = 0
-    for d in data:
-        if not count:
-            count = countbit(d)
-            if count == 0:
-                continue
-            if count == 1 or count > 4:
+    for i in data:
+        if byte_count == 0:
+            if i >> 5 == 0b110 or i >> 5 == 0b1110:
+                byte_count = 1
+            elif i >> 4 == 0b1110:
+                byte_count = 2
+            elif i >> 3 == 0b11110:
+                byte_count = 3
+            elif i >> 7 == 0b1:
                 return False
-            count -= 1
-            if countbit(d) != 1:
+        else:
+            if i >> 6 != 0b10:
                 return False
-    return count == 0
+            byte_count -= 1
+    return byte_count == 0
