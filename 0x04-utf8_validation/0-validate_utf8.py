@@ -12,6 +12,7 @@ def validUTF8(data):
             else:
                 break
         return count
+
     count = 0
     for d in data:
         if not count:
@@ -19,10 +20,8 @@ def validUTF8(data):
             if count == 0:
                 continue
             if count == 1 or count > 4:
-                count -= 1
                 return False
-            else:
-                count -= 1
-                if countbit(d) != 1:
-                    return False
+            count -= 1
+            if countbit(d) != 1:
+                return False
     return count == 0
