@@ -3,19 +3,19 @@
 
 
 def makeChange(coins, total):
-    """Returns: fewest number of coins needed to meet total"""
+    """Return: fewest number of coins needed to meet total"""
     if total <= 0:
         return 0
     count = 0
-    i = 0
-    sorted_Coins = sorted(coins, reverse=True)
-    l = len(coins)
+    index = 0
+    sortedCoins = sorted(coins, reverse=True)
+    i = len(coins)
     while total > 0:
-        if i >= l:
+        if index >= i:
             return -1
-        if total - sorted_Coins[i] >= 0:
-            total -= sorted_Coins[i]
-            count+= 1
+        if total - sortedCoins[index] >= 0:
+            total -= sortedCoins[index]
+            count += 1
         else:
-            i += 1
+            index += 1
     return count
