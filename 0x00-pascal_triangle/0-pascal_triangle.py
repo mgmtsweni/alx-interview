@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Create a function that returns Pascal's triangle
-"""
+"""Create a function that returns Pascal's triangle"""
 
 
 def pascal_triangle(n: int):

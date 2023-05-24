@@ -3,17 +3,12 @@
 
 
 def canUnlockAll(boxes):
-    """
-    Determines if all the boxes can be opened or not
-        Returns:
-        True: all boxes can be opened
-        False: not all boxes can be opened
-    """
+    """Determines if all the boxes can be opened or not"""
     n = len(boxes)
     checked = set([0])
     unchecked = set(boxes[0]).difference(set([0]))
 
-    while len(unchecked) > 0:
+    while unchecked:
         box = unchecked.pop()
         if not box or box >= n or box < 0:
             continue

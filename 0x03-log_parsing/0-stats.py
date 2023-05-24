@@ -4,12 +4,12 @@ import re
 import sys
 counter = 0
 file_size = 0
-status_counter = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0,
-                  404: 0, 405: 0, 500: 0}
+status_counter = {200: 0, 301: 0, 400: 0, 401: 0,
+                  403: 0, 404: 0, 405: 0, 500: 0}
 
 
 def printCodes(dict, file_s):
-    """Prints the status code and the number of times they appear"""
+    """Prints the status code and the number of times they appear."""
     print("File size: {}".format(file_s))
     for key in sorted(dict.keys()):
         if status_counter[key] != 0:

@@ -30,7 +30,7 @@ def backtrack(r, n, cols, positive, negative, board):
 
 
 def nqueens(n):
-    """ Solution to nqueens problem"""
+    """Solution to nqueens problem"""
     cols = set()
     positive_diag = set()
     negative_diag = set()
