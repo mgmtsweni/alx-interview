@@ -1,16 +1,24 @@
 #!/usr/bin/python3
+"""Module of the primeGame"""
+
 
 def isWinner(x, nums):
-    """Returns the name of the winner"""
-    if not nums or x < 1 or x > 10000:
+    """returns the name of winner"""
+    if not nums or x < 1:
         return None
+    if x > 10000:
+        return None
+    b = 0
+    m = 0
 
-    b = sum(num == 1 or num % 2 == 0 for num in nums)
-    m = len(nums) - b
-
+    players = ["Maria", "Ben"]
+    for i in range(len(nums)):
+        if nums[i] > 10000:
+            return None
+        if nums[i] == 1 or nums[i] % 2 == 0:
+            b += 1
+        else:
+            m += 1
     if b > m:
-        return "Ben"
-    elif b < m:
-        return "Maria"
-    else:
-        return None
+        return players[1]
+    return None if b == m else players[0]
